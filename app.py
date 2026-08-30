@@ -1,7 +1,10 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 
 app = Flask(__name__)
 
+@app.route("/riot.txt")
+def riot_verification():
+    return send_from_directory("static", "riot.txt", mimetype="text/plain")
 
 @app.route("/")
 def home():
